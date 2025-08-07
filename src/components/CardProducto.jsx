@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function CardProducto({ producto }) {
+  const { addToCart } = useCart();
+
   return (
     <div className="product-card">
       <Link to={`/producto/${producto.id}`}>
@@ -12,6 +15,20 @@ function CardProducto({ producto }) {
           <p className="product-card__price">${producto.price}</p>
         </div>
       </Link>
+      <button
+        className="product-card__add-btn"
+        onClick={() =>
+          addToCart({
+            id: producto.id,
+            nombre: producto.title, // O usa "title" si tu contexto espera ese campo
+            precio: producto.price, // O usa "price" si tu contexto espera ese campo
+            image: producto.image,
+          })
+        }
+        style={{ marginTop: "10px", width: "100%" }}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 }
