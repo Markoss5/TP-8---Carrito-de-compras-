@@ -7,20 +7,22 @@ import QuienesSomos from "./pages/QuienesSomos.jsx";
 import Contacto from "./pages/Contacto.jsx";
 import Productos from "./pages/Productos.jsx";
 import CartWidget from "./components/CartWidget.jsx";
+import Checkout from "./components/Checkout.jsx";
 
 function App() {
   return (
-    <BrowserRouter basename="/TP7_ProductosEFSI">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <CartWidget />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />    
           <Route path="home" element={<Home />} />
           <Route path="productos" element={<Productos />} />
-          <Route path="productos/:category" element={<Productos />} />
-          <Route path="quienessomos" element={<QuienesSomos />} />
+          <Route path="productos/:idCategoria" element={<Productos />} />
+          <Route path="quienes-somos" element={<QuienesSomos />} />
           <Route path="contacto" element={<Contacto />} />
-          <Route path="detalleProd/:idProducto" element={<ProductoDetalle />} />
+          <Route path="producto/:idProducto" element={<ProductoDetalle />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
         </Route>
       </Routes>

@@ -1,0 +1,108 @@
+.cart-widget-container {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 1000;
+  }
+  
+  .cart-widget-btn {
+    background: #fff;
+    border: 2px solid #f3c16b;
+    border-radius: 50px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: 2px 2px 8px #0002;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  
+  .cart-widget-btn:hover {
+    box-shadow: 4px 4px 12px #0003;
+  }
+  
+  .cart-icon {
+    font-size: 1.5rem;
+  }
+  
+  .cart-count {
+    background: #f3c16b;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .cart-dropdown {
+    background: #fff;
+    border: 2px solid #e7e7e7;
+    box-shadow: 0px 4px 24px #0003;
+    padding: 22px;
+    border-radius: 10px;
+    min-width: 320px;
+    position: absolute;
+    top: 58px;
+    right: 0;
+    animation: fadeIn 0.22s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  .cart-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+  }
+  
+  .remove-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    margin: 10px 0;
+  }
+  
+  .clear-btn {
+    background: #e7e7e7;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 5px;
+    margin-right: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .checkout-btn {
+    background: #f3c16b;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 8px;
+    display: inline-block;
+  }

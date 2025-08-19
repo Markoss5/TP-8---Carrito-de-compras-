@@ -1,37 +1,33 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-
-// Creamos el contexto
 const CartContext = createContext();
-
-// Hook para consumir el contexto fácilmente
 export const useCart = () => useContext(CartContext);
-
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    // Persiste carrito en localStorage
-    const stored = localStorage.getItem("cart");
+
+    const stored = localStorage.getItem("cartItems");
     return stored ? JSON.parse(stored) : [];
   });
 
-  // Efecto para actualizar localStorage cuando cambia el carrito
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
   const addToCart = (producto) => {
+    const normalizedProduct = {
+      id: producto.id,
+      nombre: producto.nombre ?? producto.title ?? "Producto",
+      precio: producto.precio ?? producto.price ?? 0,
+      imagen: producto.imagen ?? producto.image ?? "",
+    };
+
     setCartItems((prev) => {
-      const found = prev.find((item) => item.id === producto.id);
-      if (found) {
-        // Si ya está, suma cantidad
-        return prev.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: item.cantidad + 1 }
-            : item
-        );
-      } else {
-        // Si no está, lo agrega con cantidad 1
-        return [...prev, { ...producto, cantidad: 1 }];
+      const index = prev.findIndex((item) => item.id === normalizedProduct.id);
+      if (index !== -1) {
+        const updated = [...prev];
+        updated[index].cantidad += 1;
+        return updated;
       }
+      return [...prev, { ...normalizedProduct, cantidad: 1 }];
     });
   };
 
@@ -39,13 +35,11 @@ export const CartProvider = ({ children }) => {
     setCartItems((prev) => prev.filter((item) => item.id !== idProducto));
   };
 
-  const clearCart = () => {
-    setCartItems([]);
-  };
+  const clearCart = () => setCartItems([]);
 
   const getTotal = () => {
     return cartItems.reduce(
-      (total, item) => total + item.precio * item.cantidad,
+      (acc, item) => acc + item.precio * item.cantidad,
       0
     );
   };

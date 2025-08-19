@@ -144,7 +144,6 @@ a:hover { color: var(--color-secondary); }
   }
 }
 
-/* Footer */
 .footer {
   background: var(--color-primary);
   color: #fff;
@@ -157,7 +156,6 @@ a:hover { color: var(--color-secondary); }
   letter-spacing: .01em;
 }
 
-/* Home hero/banner */
 .home {
   display: flex;
   align-items: center;
@@ -214,7 +212,6 @@ a:hover { color: var(--color-secondary); }
   outline: none;
 }
 
-/* Productos grid */
 .products {
   max-width: 1220px;
   margin: 3.5rem auto 0 auto;
@@ -233,7 +230,6 @@ a:hover { color: var(--color-secondary); }
   gap: 2.25rem;
 }
 
-/* Product Card */
 .product-card {
   background: #fff;
   border-radius: var(--radius);
@@ -287,7 +283,6 @@ a:hover { color: var(--color-secondary); }
   font-weight: 700;
 }
 
-/* Product Detail */
 .product-detail {
   display: flex;
   flex-wrap: wrap;
@@ -349,7 +344,6 @@ a:hover { color: var(--color-secondary); }
   text-decoration: underline;
 }
 
-/* Contact */
 .contact {
   max-width: 540px;
   margin: 3rem auto;
@@ -403,7 +397,6 @@ a:hover { color: var(--color-secondary); }
   background: #005bb5;
 }
 
-/* Loader y errores */
 .loader {
   text-align: center;
   color: var(--color-secondary);
@@ -417,7 +410,6 @@ a:hover { color: var(--color-secondary); }
   margin: 2rem 0;
 }
 
-/* Responsive tweaks */
 @media (max-width: 1000px) {
   .products__grid {
     gap: 1.1rem;
@@ -448,7 +440,6 @@ a:hover { color: var(--color-secondary); }
   .contact { padding: 1.2rem .5rem;}
 }
 
-/* HOME */
 .apple-home {
   width: 100%;
   background: #f7f9fb;
@@ -538,7 +529,6 @@ a:hover { color: var(--color-secondary); }
   background: #0071e3;
 }
 
-/* QUIENES SOMOS */
 .apple-aboutpage {
   width: 100%;
   background: #f9fafb;

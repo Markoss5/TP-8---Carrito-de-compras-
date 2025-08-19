@@ -1,11 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useCart } from "../context/CartContext";
 
 function ProductoDetalle() {
   const { idProducto } = useParams();
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
@@ -27,7 +29,8 @@ function ProductoDetalle() {
         <p className="product-detail__category">Categoría: {producto.category}</p>
         <p className="product-detail__desc">{producto.description}</p>
         <p className="product-detail__price">${producto.price}</p>
-        <Link to="/productos" className="product-detail__back">← Volver a productos</Link>
+        <button className="button-primary" onClick={() => addToCart(producto)}>Agregar al carrito</button>
+        <Link to="/productos" className="product-detail__back">Volver a productos</Link>
       </div>
     </section>
   );

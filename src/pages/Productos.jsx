@@ -11,7 +11,7 @@ function Productos() {
   useEffect(() => {
     setLoading(true);
     let url = "https://fakestoreapi.com/products";
-    if (idCategoria) url = `https://fakestoreapi.com/products/category/${idCategoria}`;
+    if (idCategoria) url = `https://fakestoreapi.com/products/category/${encodeURIComponent(idCategoria)}`;
     axios.get(url)
       .then(res => setProductos(res.data))
       .finally(() => setLoading(false));
