@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Markoss5/TP7_CatalogoProductos",
+  "homepage": "https://github.com/Markoss5/TP-8---Carrito-de-compras-",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
